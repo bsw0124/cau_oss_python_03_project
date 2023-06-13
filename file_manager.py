@@ -70,3 +70,4 @@ if __name__ == '__main__':
     # 출력
     for s in strs:
         print(s)
+# %%
