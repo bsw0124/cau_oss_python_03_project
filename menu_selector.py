@@ -10,12 +10,10 @@ def start_process(path):
         print("[2] filter")
         print("[3] sort")
         print("[4] exit")
-        #str_list = file_manager.read_file(path)
-        #spots = parking_spot_manager.str_list_to_class_list(str_list)
         select = int(input('type:'))
         if select == 1:
             parking_spot_manager.print_spots(spots)
-            # fill this block
+            
         elif select == 2:
             print("---filter by---")
             print("[1] name")
@@ -28,22 +26,22 @@ def start_process(path):
                 keyword = input('type name:')
                 spots = parking_spot_manager.filter_by_name(spots, keyword)
                 continue #데이터 필터링후 출력하지 않고 바로 다시 메뉴 셀렉터로 올리기
-                # fill this block
+                
             elif select == 2:
                 keyword = input('type city:')
                 spots = parking_spot_manager.filter_by_city(spots, keyword)
                 continue #데이터 필터링후 출력하지 않고 바로 다시 메뉴 셀렉터로 올리기
-                # fill this block
+                
             elif select == 3:
                 keyword = input('type district:')
                 spots = parking_spot_manager.filter_by_district(spots, keyword)
                 continue #데이터 필터링후 출력하지 않고 바로 다시 메뉴 셀렉터로 올리기
-                # fill this block
+                
             elif select == 4:
                 keyword = input('type ptype:')
                 spots = parking_spot_manager.filter_by_ptype(spots, keyword)
                 continue #데이터 필터링후 출력하지 않고 바로 다시 메뉴 셀렉터로 올리기
-                # fill this block
+                
             elif select == 5:
                 min_lat = float(input('type min lat:'))
                 max_lat = float(input('type max lat:'))
@@ -53,7 +51,7 @@ def start_process(path):
                 continue #데이터 필터링후 출력하지 않고 바로 다시 메뉴 셀렉터로 올리기
                 
                 
-                # fill this block
+                
             else:
                 print("invalid input")
         elif select == 3:
@@ -62,12 +60,13 @@ def start_process(path):
             print(keywords)
             keyword = input('type keyword:')
             if keyword in keywords:
-                print("not implemented yet")
-                # fill this block
+                spots = parking_spot_manager.sort_by_keyword(spots,keyword)
+                continue
+                
             else: print("invalid input")
         elif select == 4:
             print("Exit")
             break;
-            # fill this block
+            
         else:
             print("invalid input")

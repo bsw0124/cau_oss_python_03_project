@@ -20,15 +20,15 @@ class parking_spot:
     def get(self,keyword = 'name'):
         return self.__item[keyword] #keyword에 해당하는 value를 반환 
 
-def str_list_to_class_list(str_list):
+def str_list_to_class_list(str_list): #받아온 str_list를 클래스 리스트로 변환 하기 위한 함수
     class_list = [] # 객체 append를 위해서 먼저 빈 리스트 선언
     
-    for item in str_list: #
+    for item in str_list: 
         split_lsit = item.split(',') 
         class_list.append(parking_spot(split_lsit[1],split_lsit[2],split_lsit[3],split_lsit[4],split_lsit[5],split_lsit[6])) #객체생성후 append
     return class_list
         
-def print_spots(spots): #주차장 전부를 print 하기 위한 함수
+def print_spots(spots): #주차장을 print 하기 위한 함수
     list_len = len(spots) 
     print(f"---print elements({list_len})---") 
     for item in spots:
@@ -58,8 +58,11 @@ def filter_by_location(spots, locations): #index로 locations튜플에 접근후
                                 and item.get('longitude') > locations[2]
                                 and item.get('longitude') < locations[3]
                                 ]
-    return filter_by_location_list
+    return filter_by_location_list 
 
+def sort_by_keyword(spots,keyword): #내장함수인 sorted함수를 통해서 객체리스트의 객체들의 __item 의 key값에 맞는 value들을 참고해 객체 정렬
+    sorted_by_keyword_list = sorted(spots,key = lambda x:x.get(keyword)) 
+    return sorted_by_keyword_list
 
 
 # 각 단계별로 테스트 (테스트할때 주석해제 후 사용)
@@ -73,6 +76,6 @@ def filter_by_location(spots, locations): #index로 locations튜플에 접근후
     #spots = filter_by_district(spots, '동작')
     #print_spots(spots)
     
-    # version#4
-    # spots = sort_by_keyword(spots, 'name')
-    # print_spots(spots)
+    #version#4
+    #spots = sort_by_keyword(spots, 'name')
+    #print_spots(spots)
